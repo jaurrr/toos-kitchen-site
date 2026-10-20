@@ -1,0 +1,48 @@
+<section class="hero" id="home">
+  <div class="panels">
+    <div class="panel toos">
+      <img src="assets/img/hero-toos.jpg" alt="Toos Kitchen restaurant" fetchpriority="high" />
+      <span class="tag">{{ lang.t('hero.toosBadge') }}</span>
+    </div>
+    <div class="panel zaffran">
+      <img src="assets/img/hero-zaffran.jpg" alt="Zaffran restaurant" fetchpriority="high" />
+      <span class="tag">{{ lang.t('hero.zaffranBadge') }}</span>
+    </div>
+    <div class="veil"></div>
+    <div class="embers" aria-hidden="true">
+      @for (i of [1,2,3,4,5,6,7,8,9,10,11,12]; track i) {
+        <span class="ember" [style.--d]="i"></span>
+      }
+    </div>
+  </div>
+
+  <div class="wrap copy" appReveal>
+    <p class="eyebrow">{{ lang.t('hero.eyebrow') }}</p>
+    <h1 class="display title">
+      <span class="t1">{{ lang.t('hero.titleToos') }}</span>
+      <span class="xx" aria-hidden="true">×</span>
+      <span class="t2">{{ lang.t('hero.titleZaffran') }}</span>
+    </h1>
+    <p class="tagline">{{ lang.t('hero.tagline') }}</p>
+
+    <div class="rating">
+      <span class="stars" aria-hidden="true">
+        <app-icon name="star"></app-icon><app-icon name="star"></app-icon><app-icon name="star"></app-icon><app-icon name="star"></app-icon><app-icon name="star" class="off"></app-icon>
+      </span>
+      <span>{{ lang.t('hero.rating') }}</span>
+    </div>
+
+    <div class="ctas">
+      <a class="btn btn-gold" [href]="orderUrl()" target="_blank" rel="noopener">
+        <app-icon name="message-circle"></app-icon>
+        <span>{{ lang.t('hero.ctaOrder') }}</span>
+      </a>
+      <button class="btn btn-ghost" (click)="goMenu()">
+        <app-icon name="utensils"></app-icon>
+        <span>{{ lang.t('hero.ctaMenu') }}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="slash" aria-hidden="true"></div>
+</section>

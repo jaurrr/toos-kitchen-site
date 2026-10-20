@@ -1,0 +1,100 @@
+.hero {
+  position: relative; min-height: 100svh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; isolation: isolate;
+}
+
+.panels { position: absolute; inset: 0; display: flex; z-index: -2; }
+.panel { position: relative; flex: 1; overflow: hidden; }
+.panel img {
+  width: 100%; height: 100%; object-fit: cover;
+  animation: kenburns 26s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+.panel.zaffran img { animation-delay: -13s; animation-direction: alternate-reverse; }
+@keyframes kenburns {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.14) translate(-1.5%, 1.5%); }
+}
+.panel .tag {
+  position: absolute; bottom: 1.4rem; inset-inline-start: 1.4rem;
+  background: rgba(23, 16, 11, 0.72); border: 1px solid var(--line); color: var(--gold-soft);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.4rem 0.9rem; border-radius: 999px; backdrop-filter: blur(6px);
+}
+html[lang='ar'] .panel .tag { letter-spacing: 0; }
+.panel.zaffran .tag { color: #f0b8c0; border-color: rgba(240, 184, 192, 0.3); }
+
+.veil {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 42%, rgba(23,16,11,0.18) 0%, rgba(23,16,11,0.78) 78%),
+    linear-gradient(to bottom, rgba(23,16,11,0.55) 0%, rgba(23,16,11,0.25) 40%, rgba(23,16,11,0.88) 100%);
+}
+
+// Floating ember particles
+.embers { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.ember {
+  position: absolute; bottom: -12px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(227,197,101,0.9), rgba(227,197,101,0) 70%);
+  animation: rise linear infinite;
+  inset-inline-start: calc(var(--d) * 8.2% - 4%);
+  width: calc(2px + var(--d) * 0.45px); height: calc(2px + var(--d) * 0.45px);
+  animation-duration: calc(9s + (var(--d) * 1.7s));
+  animation-delay: calc(var(--d) * -1.3s);
+  opacity: 0;
+}
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 0; }
+  12% { opacity: 0.85; }
+  100% { transform: translateY(-72vh); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel img, .ember { animation: none; }
+}
+
+.copy { position: relative; text-align: center; padding: 7rem 0 5rem; max-width: 860px; }
+.eyebrow {
+  color: var(--gold); font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+  font-size: 0.8rem; margin: 0 0 1.2rem;
+}
+html[lang='ar'] .eyebrow { letter-spacing: 0.06em; }
+.title {
+  margin: 0; line-height: 1.12;
+  font-size: clamp(2.9rem, 8.5vw, 5.6rem);
+  display: flex; flex-direction: column; align-items: center; gap: 0.1em;
+}
+.title .t1 {
+  background: linear-gradient(160deg, #f4e3ac 10%, var(--gold) 55%, #9a7a1e 90%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 4px 22px rgba(201, 162, 39, 0.25));
+  animation: glow 5s ease-in-out infinite;
+}
+.title .t2 { color: var(--cream); }
+.title .xx { color: var(--gold); font-size: 0.55em; opacity: 0.9; }
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 4px 22px rgba(201, 162, 39, 0.25)); }
+  50% { filter: drop-shadow(0 4px 34px rgba(201, 162, 39, 0.45)); }
+}
+.tagline { color: var(--cream-dim); font-size: clamp(1.02rem, 2.4vw, 1.25rem); max-width: 620px; margin: 1.4rem auto 0; }
+
+.rating {
+  display: inline-flex; align-items: center; gap: 0.7rem; margin-top: 1.6rem;
+  background: rgba(23,16,11,0.6); border: 1px solid var(--line); border-radius: 999px;
+  padding: 0.55rem 1.2rem; font-weight: 600; font-size: 0.95rem; backdrop-filter: blur(8px);
+}
+.ctas { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+
+// Gold slash divider into next section
+.slash {
+  position: absolute; bottom: -1px; inset-inline: 0; height: 90px; z-index: 1;
+  background: linear-gradient(to bottom, transparent, var(--char));
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .panels { flex-direction: column; }
+  .panel { min-height: 0; }
+  .panel .tag { bottom: 0.8rem; inset-inline-start: 0.8rem; font-size: 0.68rem; }
+  .copy { padding: 6rem 0 4rem; }
+}

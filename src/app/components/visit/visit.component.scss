@@ -1,0 +1,36 @@
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; margin-bottom: 1.6rem; }
+.spot, .book { padding: 1.7rem; display: flex; flex-direction: column; }
+.spot.zaf { border-color: rgba(110, 20, 35, 0.65); background: linear-gradient(160deg, #2a1410, var(--card)); }
+.spot h3, .book h3 { margin: 0 0 1.1rem; font-size: 1.45rem; color: var(--gold-soft); }
+.spot.zaf h3 { color: #f0b8c0; }
+.spot ul { list-style: none; margin: 0 0 1.3rem; padding: 0; display: flex; flex-direction: column; gap: 0.95rem; flex: 1; }
+.spot li { display: flex; gap: 0.8rem; align-items: flex-start; }
+.spot li app-icon { color: var(--gold); margin-top: 0.2rem; }
+.spot li div { display: flex; flex-direction: column; min-width: 0; }
+.spot li strong { font-size: 0.78rem; color: var(--cream-faint); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+html[lang='ar'] .spot li strong { letter-spacing: 0; }
+.spot li span, .spot li a { color: var(--cream); font-size: 0.95rem; text-decoration: none; }
+.spot li a:hover { color: var(--gold-soft); }
+.nums { display: flex; gap: 0.6rem; align-items: center; }
+.dir { justify-content: center; }
+
+.book p { color: var(--cream-dim); font-size: 0.94rem; margin: 0 0 1.2rem; }
+.book label { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.9rem; }
+.book label span { font-size: 0.85rem; font-weight: 600; color: var(--cream-dim); }
+.book input {
+  background: rgba(201, 162, 39, 0.06); border: 1px solid var(--line); border-radius: 10px;
+  color: var(--cream); font: inherit; padding: 0.7rem 0.9rem; min-height: 48px; width: 100%;
+  outline: none;
+}
+.book input:focus { border-color: var(--gold); }
+.book input::placeholder { color: var(--cream-faint); }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.send { justify-content: center; width: 100%; margin-top: 0.4rem; }
+.open { display: flex; align-items: center; gap: 0.5rem; margin: 1rem 0 0 !important; font-size: 0.85rem; color: var(--ok); }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px var(--ok); animation: pulse 2s infinite; }
+@keyframes pulse { 50% { opacity: 0.5; } }
+
+.map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+.map iframe { width: 100%; height: 380px; border: 0; display: block; filter: grayscale(0.35) sepia(0.12); }
+
+@media (max-width: 960px) { .cards { grid-template-columns: 1fr; } }

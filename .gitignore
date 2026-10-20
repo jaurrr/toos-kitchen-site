@@ -1,0 +1,13 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# Angular build output
+/dist
+/.angular
+
+# misc
+.DS_Store
+Thumbs.db
+*.log

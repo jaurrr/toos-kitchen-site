@@ -1,0 +1,163 @@
+{
+  "about": {
+    "features": [
+      "Rooftop seating",
+      "Family section",
+      "Wheelchair accessible",
+      "Free parking",
+      "Accepts reservations",
+      "Cards & NFC accepted"
+    ],
+    "kicker": "Our story",
+    "p1": "Toos Kitchen has been Saihat's barbecue house since 2017 — famous for mandi, waleema platters and charcoal grills, with a rooftop where families gather over generous platters.",
+    "p2": "Zaffran is our sister kitchen — a Pakistani restaurant loved for tandoor-fresh breads, karahi-style grills and hearty breakfast platters, with outdoor seating and a private dining room.",
+    "statDishes": "dishes on the menu",
+    "statRating": "Google rating",
+    "statReviews": "Google reviews",
+    "statYears": "years serving Saihat",
+    "title": "One family, two beloved kitchens"
+  },
+  "common": {
+    "chatWa": "Chat on WhatsApp",
+    "sar": "SAR",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "contact": "Contact",
+    "explore": "Explore",
+    "hours": "Hours",
+    "rights": "© 2026 Toos Kitchen × Zaffran. All rights reserved.",
+    "tagline": "Two kitchens, one family — serving Saihat since 2017."
+  },
+  "gallery": {
+    "close": "Close",
+    "kicker": "Gallery",
+    "next": "Next photo",
+    "prev": "Previous photo",
+    "sub": "Real plates, real fire — photographed by our guests.",
+    "title": "Fresh from our kitchens",
+    "morePhotos": "More photos",
+    "showLess": "Show less"
+  },
+  "hero": {
+    "ctaMenu": "Explore the Menu",
+    "ctaOrder": "Order on WhatsApp",
+    "eyebrow": "Saihat · Saudi Arabia",
+    "rating": "4.3 · 1,233 Google reviews",
+    "tagline": "Slow-cooked mandi, sizzling grills and honest Arabic food — two kitchens, one family.",
+    "titleToos": "Toos Kitchen",
+    "titleZaffran": "Zaffran",
+    "toosBadge": "Barbecue House",
+    "zaffranBadge": "Sister Kitchen"
+  },
+  "highlights": {
+    "badge": "Most ordered",
+    "items": [
+      {
+        "desc": "Tender lamb over fragrant spicy rice — the dish that built our name.",
+        "name": "Lamb Mandi with Spicy Rice"
+      },
+      {
+        "desc": "Char-grilled chicken with fiery kozhi-haar rice, our most-loved plate.",
+        "name": "Grilled Chicken with Spicy Rice"
+      },
+      {
+        "desc": "A feast of soft, slow-cooked lamb waleema — made for sharing.",
+        "name": "Lamb Waleema Platter"
+      },
+      {
+        "desc": "Layered and aromatic — the biryani our regulars swear by.",
+        "name": "Chicken Biryani"
+      },
+      {
+        "desc": "Saudi Arabia's beloved spiced rice, cooked the proper way.",
+        "name": "Kabsa"
+      },
+      {
+        "desc": "Our signature grill mix — kebab, awsal, wings and ribs.",
+        "name": "Zaffran Special Mixed Grill"
+      }
+    ],
+    "kicker": "Guest favourites",
+    "order": "Order",
+    "sub": "The plates our regulars order again and again — slow-cooked, generous, unforgettable.",
+    "title": "Dishes people cross town for"
+  },
+  "menu": {
+    "brandAll": "Combined",
+    "brandToos": "Toos Kitchen",
+    "brandZaffran": "Zaffran",
+    "count": "dishes",
+    "kicker": "Our menu",
+    "noResult": "No dishes found — try another word.",
+    "order": "Order",
+    "priceNote": "Prices in Saudi Riyal. A few prices are being confirmed with the kitchen — call us for today's price.",
+    "searchPh": "Search dishes… (e.g. mandi, shawarma)",
+    "sub": "Every dish below is real — search it, pick your kitchen, order in one tap.",
+    "title": "Two kitchens, one table"
+  },
+  "nav": {
+    "about": "About",
+    "gallery": "Gallery",
+    "home": "Home",
+    "menu": "Menu",
+    "order": "Order Now",
+    "reviews": "Reviews",
+    "toggle": "العربية",
+    "visit": "Visit Us"
+  },
+  "reviews": {
+    "allBtn": "Read all Google reviews",
+    "basedOn": "Based on 1,233 Google reviews",
+    "kicker": "Reviews",
+    "localGuide": "Local Guide",
+    "photosCount": "photos",
+    "reviewsCount": "reviews",
+    "sub": "Real, unedited reviews from Google Maps.",
+    "title": "What Saihat says about us",
+    "withPhotos": "with photos"
+  },
+  "visit": {
+    "address": "Address",
+    "bookSub": "Send your booking on WhatsApp — we confirm within minutes.",
+    "bookTitle": "Book a table",
+    "booking": "Booking (WhatsApp)",
+    "call": "Call",
+    "directions": "Get directions",
+    "formDate": "Date",
+    "formGuests": "Guests",
+    "formName": "Your name",
+    "formNamePh": "e.g. Ahmed",
+    "formSend": "Send booking on WhatsApp",
+    "hours": "Hours",
+    "kicker": "Visit us",
+    "openNow": "Open now · closes 11 PM",
+    "sub": "Walk in, call ahead, or order on WhatsApp — dinner is waiting.",
+    "title": "Two doors, one welcome",
+    "toosAddr": "15th Street, An Naqa, Saihat 31972, Saudi Arabia",
+    "toosHours": "Daily · 6:30 AM – 11:00 PM",
+    "toosName": "Toos Kitchen",
+    "zaffranAddr": "15th Street, An Naqa, Saihat 32461, Saudi Arabia",
+    "zaffranHours": "Daily · 5:30–11:00 AM & 12:00–11:00 PM",
+    "zaffranName": "Zaffran"
+  },
+  "cart": {
+    "title": "Your order",
+    "close": "Close cart",
+    "empty": "Your cart is empty. Add a dish from the menu to get started.",
+    "browse": "Browse the menu",
+    "add": "Add",
+    "added": "In cart",
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity",
+    "remove": "Remove item",
+    "total": "Total",
+    "totalNote": "Some dishes have no listed price or size options — the final total is confirmed on WhatsApp.",
+    "checkout": "Order on WhatsApp",
+    "clear": "Clear cart",
+    "viewCart": "View cart",
+    "shareLoc": "Share my location with the order",
+    "locating": "Getting your location…",
+    "locFail": "Could not get your location — the order will be sent without it."
+  }
+}

@@ -1,0 +1,106 @@
+// Toos Kitchen × Zaffran — "Layl Al-Mandi" design system
+// Logical properties throughout so one stylesheet serves LTR + RTL.
+
+:root {
+  --espresso: #2a1a12;
+  --char: #17100b;
+  --char-2: #211510;
+  --gold: #c9a227;
+  --gold-soft: #e3c565;
+  --gold-dim: rgba(201, 162, 39, 0.16);
+  --cream: #f3ead8;
+  --cream-dim: rgba(243, 234, 216, 0.62);
+  --cream-faint: rgba(243, 234, 216, 0.38);
+  --maroon: #6e1423;
+  --maroon-deep: #4a0d17;
+  --line: rgba(201, 162, 39, 0.22);
+  --card: #241811;
+  --ok: #7fb069;
+  --font-ar-display: 'Aref Ruqaa', serif;
+  --font-ar-body: 'Tajawal', sans-serif;
+  --font-en-display: 'Cormorant Garamond', serif;
+  --font-en-body: 'Inter', sans-serif;
+  --radius: 14px;
+  --nav-h: 72px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--char);
+  color: var(--cream);
+  font-family: var(--font-en-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+html[lang='ar'] body { font-family: var(--font-ar-body); line-height: 1.8; }
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+
+.display { font-family: var(--font-en-display); font-weight: 600; letter-spacing: 0.01em; }
+html[lang='ar'] .display { font-family: var(--font-ar-display); letter-spacing: 0; line-height: 1.5; }
+
+.wrap { width: min(1180px, 92%); margin-inline: auto; }
+
+section { scroll-margin-top: calc(var(--nav-h) + 12px); }
+
+.section-head { text-align: center; margin-bottom: 2.6rem; }
+.section-head .kicker {
+  display: inline-block; color: var(--gold); font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.7rem;
+}
+html[lang='ar'] .section-head .kicker { letter-spacing: 0; font-size: 0.95rem; }
+.section-head h2 { font-size: clamp(1.9rem, 4.4vw, 3rem); margin: 0 0 0.6rem; color: var(--cream); }
+.section-head p { color: var(--cream-dim); max-width: 640px; margin: 0 auto; }
+
+.gold-rule { width: 72px; height: 3px; margin: 1rem auto 0; border-radius: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+// Scroll reveal
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+// Buttons
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  min-height: 48px; padding: 0.7rem 1.6rem; border-radius: 999px;
+  font-weight: 600; font-size: 1rem; text-decoration: none; border: 1px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn-gold { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #241a08;
+  box-shadow: 0 8px 26px rgba(201, 162, 39, 0.28); }
+.btn-gold:hover { box-shadow: 0 12px 32px rgba(201, 162, 39, 0.4); transform: translateY(-2px); }
+.btn-ghost { border-color: var(--line); color: var(--cream); background: rgba(201, 162, 39, 0.06); }
+.btn-ghost:hover { background: rgba(201, 162, 39, 0.14); }
+.btn app-icon { width: 1.15em; height: 1.15em; }
+
+// Cards
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+
+// Price
+.price { color: var(--gold); font-weight: 700; white-space: nowrap; }
+.price .cur { font-size: 0.72em; font-weight: 500; color: var(--cream-dim); margin-inline-start: 0.3em; }
+
+// Star rating (never mirrored)
+.stars { display: inline-flex; gap: 2px; color: var(--gold); direction: ltr; }
+.stars app-icon { width: 1em; height: 1em; }
+.stars app-icon.off { color: rgba(201, 162, 39, 0.28); }
+
+// Phone / numbers stay LTR
+[dir] .ltr, .ltr { direction: ltr; unicode-bidi: embed; }
+
+// Section spacing
+.section { padding: 5rem 0; }
+@media (max-width: 768px) { .section { padding: 3.4rem 0; } }

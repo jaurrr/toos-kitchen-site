@@ -1,0 +1,37 @@
+<section class="section" id="highlights">
+  <div class="wrap">
+    <div class="section-head" appReveal>
+      <span class="kicker">{{ lang.t('highlights.kicker') }}</span>
+      <h2 class="display">{{ lang.t('highlights.title') }}</h2>
+      <p>{{ lang.t('highlights.sub') }}</p>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="grid">
+      @for (h of items; track h.img; let i = $index) {
+        <article class="card dish" appReveal>
+          <div class="ph">
+            <img [src]="h.img" [alt]="name(i)" loading="lazy" />
+            <span class="badge"><app-icon name="flame"></app-icon>{{ lang.t('highlights.badge') }}</span>
+          </div>
+          <div class="body">
+            <h3 class="display">{{ name(i) }}</h3>
+            <p>{{ desc(i) }}</p>
+            @if (cart.qtyOf(dishFor(i).id) === 0) {
+              <button class="order" (click)="cart.add(dishFor(i))">
+                <app-icon name="plus"></app-icon>
+                {{ lang.t('cart.add') }}
+              </button>
+            } @else {
+              <div class="stepper">
+                <button (click)="cart.dec(dishFor(i).id)" aria-label="−"><app-icon name="minus"></app-icon></button>
+                <span>{{ cart.qtyOf(dishFor(i).id) }}</span>
+                <button (click)="cart.add(dishFor(i))" aria-label="+"><app-icon name="plus"></app-icon></button>
+              </div>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

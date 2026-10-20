@@ -1,0 +1,92 @@
+<section class="section menu-sec" id="menu">
+  <div class="wrap">
+    <div class="section-head" appReveal>
+      <span class="kicker">{{ lang.t('menu.kicker') }}</span>
+      <h2 class="display">{{ lang.t('menu.title') }}</h2>
+      <p>{{ lang.t('menu.sub') }}</p>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="controls" appReveal>
+      <div class="brand-tabs" role="tablist">
+        @for (t of tabs; track t.id) {
+          <button
+            role="tab"
+            [class.active]="brand() === t.id"
+            [class.zaf]="t.id === 'zaffran'"
+            (click)="setBrand(t.id)"
+          >{{ lang.isAr() ? t.ar : t.en }}</button>
+        }
+      </div>
+
+      <label class="search">
+        <app-icon name="search"></app-icon>
+        <input
+          type="search"
+          [placeholder]="lang.t('menu.searchPh')"
+          [value]="query()"
+          (input)="onSearch($any($event.target).value)"
+          aria-label="Search dishes"
+        />
+        @if (query()) {
+          <button class="clear" (click)="onSearch('')" aria-label="Clear"><app-icon name="x"></app-icon></button>
+        }
+      </label>
+    </div>
+
+    @if (!query()) {
+      <div class="pills" appReveal>
+        <button [class.active]="catId() === null" (click)="setCat(null)">
+          {{ lang.t('menu.brandAll') }} · {{ total() }}
+        </button>
+        @for (c of cats(); track c.id) {
+          <button [class.active]="catId() === c.id" (click)="setCat(c.id)">{{ catName(c) }}</button>
+        }
+      </div>
+    }
+
+    <p class="count" aria-live="polite">{{ groups().reduce((n, g) => n + g.dishes.length, 0) }} {{ lang.t('menu.count') }}</p>
+
+    @if (groups().length === 0) {
+      <p class="empty">{{ lang.t('menu.noResult') }}</p>
+    }
+
+    @for (g of groups(); track g.cat.id) {
+      <div class="cat-block" appReveal>
+        <h3 class="display cat-title">
+          {{ catName(g.cat) }}
+          @if (brand() === 'all') {
+            <span class="cat-brand">{{ g.cat.brand === 'toos' ? lang.t('menu.brandToos') : lang.t('menu.brandZaffran') }}</span>
+          }
+        </h3>
+        <ul class="dishes">
+          @for (d of g.dishes; track d.id) {
+            <li class="dish-row">
+              <div class="names">
+                <span class="n1">{{ dishName(d) }}</span>
+                <span class="n2">{{ dishSub(d) }}</span>
+              </div>
+              @if (d.price) {
+                <span class="price ltr">{{ d.price }}<span class="cur">{{ lang.t('common.sar') }}</span></span>
+              }
+              @if (cart.qtyOf(d.id) === 0) {
+                <button class="add-btn" (click)="cart.add(d)" [attr.aria-label]="lang.t('cart.add') + ': ' + dishName(d)">
+                  <app-icon name="plus"></app-icon>
+                  <span>{{ lang.t('cart.add') }}</span>
+                </button>
+              } @else {
+                <div class="stepper">
+                  <button (click)="cart.dec(d.id)" aria-label="−"><app-icon name="minus"></app-icon></button>
+                  <span>{{ cart.qtyOf(d.id) }}</span>
+                  <button (click)="cart.add(d)" aria-label="+"><app-icon name="plus"></app-icon></button>
+                </div>
+              }
+            </li>
+          }
+        </ul>
+      </div>
+    }
+
+    <p class="price-note" appReveal><app-icon name="info"></app-icon>{{ lang.t('menu.priceNote') }}</p>
+  </div>
+</section>

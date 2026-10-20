@@ -1,0 +1,52 @@
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section-head" appReveal>
+      <span class="kicker">{{ lang.t('reviews.kicker') }}</span>
+      <h2 class="display">{{ lang.t('reviews.title') }}</h2>
+      <p>{{ lang.t('reviews.sub') }}</p>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="summary card" appReveal>
+      <span class="display big">4.3</span>
+      <span class="stars" aria-hidden="true">
+        @for (on of stars(4); track $index) {
+          <app-icon name="star" [class.off]="!on"></app-icon>
+        }
+        <app-icon name="star" class="off"></app-icon>
+      </span>
+      <span class="lbl">{{ lang.t('reviews.basedOn') }}</span>
+    </div>
+
+    <div class="grid">
+      @for (r of reviews; track r.name) {
+        <article class="card rev" appReveal>
+          <div class="top">
+            <span class="avatar display">{{ r.name.charAt(0) }}</span>
+            <div class="who">
+              <strong>{{ r.name }}</strong>
+              <span class="meta">
+                {{ r.dateEn }}
+                @if (r.guide) { · {{ lang.t('reviews.localGuide') }} }
+                @if (r.photos > 0) { · {{ r.photos }} {{ lang.t('reviews.photosCount') }} }
+              </span>
+            </div>
+          </div>
+          <span class="stars sm" aria-hidden="true">
+            @for (on of stars(r.stars); track $index) {
+              <app-icon name="star" [class.off]="!on"></app-icon>
+            }
+          </span>
+          <p class="text">“{{ r.text }}”</p>
+        </article>
+      }
+    </div>
+
+    <div class="more" appReveal>
+      <a class="btn btn-gold" [href]="mapsUrl" target="_blank" rel="noopener">
+        <app-icon name="external-link"></app-icon>
+        <span>{{ lang.t('reviews.allBtn') }}</span>
+      </a>
+    </div>
+  </div>
+</section>

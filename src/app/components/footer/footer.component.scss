@@ -1,0 +1,20 @@
+.foot { border-top: 1px solid var(--line); background: #120c08; padding: 3.5rem 0 1.6rem; }
+.cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2.4rem; }
+.mark { display: flex; gap: 0.9rem; align-items: center; }
+.mark svg { width: 52px; height: 52px; flex: none; }
+.mark div { display: flex; flex-direction: column; gap: 0.3rem; }
+.mark strong { font-size: 1.05rem; }
+.mark span { color: var(--cream-dim); font-size: 0.88rem; }
+.col h4 { margin: 0 0 1rem; color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; }
+html[lang='ar'] .col h4 { letter-spacing: 0; }
+.col button, .col a, .col p {
+  display: block; background: none; border: 0; padding: 0; margin: 0 0 0.7rem;
+  color: var(--cream-dim); font-size: 0.94rem; text-decoration: none; text-align: start; cursor: pointer;
+}
+.col button:hover, .col a:hover { color: var(--gold-soft); }
+.col p span { color: var(--cream-faint); font-size: 0.85rem; }
+.maps { display: inline-flex !important; align-items: center; gap: 0.45rem; }
+.rights { text-align: center; color: var(--cream-faint); font-size: 0.82rem; margin: 0; padding-top: 1.4rem; border-top: 1px solid rgba(201,162,39,0.1); }
+
+@media (max-width: 800px) { .cols { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .cols { grid-template-columns: 1fr; } }

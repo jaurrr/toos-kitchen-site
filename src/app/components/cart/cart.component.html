@@ -1,0 +1,82 @@
+@if (cart.open()) {
+  <div class="overlay" (click)="cart.toggle(false)" aria-hidden="true"></div>
+  <aside class="drawer" role="dialog" [attr.aria-label]="lang.t('cart.title')">
+    <header>
+      <h3 class="display">
+        <app-icon name="shopping-bag"></app-icon>
+        {{ lang.t('cart.title') }}
+        @if (cart.count() > 0) {
+          <span class="n">{{ cart.count() }}</span>
+        }
+      </h3>
+      <button class="icon-btn" (click)="cart.toggle(false)" [attr.aria-label]="lang.t('cart.close')">
+        <app-icon name="x"></app-icon>
+      </button>
+    </header>
+
+    @if (cart.lines().length === 0) {
+      <div class="empty">
+        <app-icon name="shopping-bag"></app-icon>
+        <p>{{ lang.t('cart.empty') }}</p>
+        <button class="btn btn-gold" (click)="browse()">{{ lang.t('cart.browse') }}</button>
+      </div>
+    } @else {
+      <ul class="lines">
+        @for (l of cart.lines(); track l.dish.id) {
+          <li class="line">
+            <div class="info">
+              <span class="n1">{{ name(l.dish) }}</span>
+              <span class="n2">{{ sub(l.dish) }}</span>
+              @if (l.dish.price) {
+                <span class="p ltr">{{ l.dish.price }} {{ lang.t('common.sar') }}</span>
+              }
+            </div>
+            <div class="qty">
+              <button (click)="cart.dec(l.dish.id)" [attr.aria-label]="lang.t('cart.decrease')">
+                <app-icon name="minus"></app-icon>
+              </button>
+              <span>{{ l.qty }}</span>
+              <button (click)="cart.inc(l.dish.id)" [attr.aria-label]="lang.t('cart.increase')">
+                <app-icon name="plus"></app-icon>
+              </button>
+            </div>
+            <button class="rm" (click)="cart.remove(l.dish.id)" [attr.aria-label]="lang.t('cart.remove')">
+              <app-icon name="x"></app-icon>
+            </button>
+          </li>
+        }
+      </ul>
+
+      <footer>
+        @if (cart.total() !== null) {
+          <div class="total">
+            <span>{{ lang.t('cart.total') }}</span>
+            <span class="ltr">{{ cart.total() }} {{ lang.t('common.sar') }}</span>
+          </div>
+        } @else {
+          <p class="tnote"><app-icon name="info"></app-icon>{{ lang.t('cart.totalNote') }}</p>
+        }
+        <label class="loc-row">
+          <input
+            type="checkbox"
+            [checked]="cart.locationUrl() !== null"
+            (change)="cart.setLocation($any($event.target).checked)"
+          />
+          <app-icon name="map-pin"></app-icon>
+          <span>{{ lang.t('cart.shareLoc') }}</span>
+        </label>
+        @if (cart.locationLoading()) {
+          <p class="loc-note">{{ lang.t('cart.locating') }}</p>
+        }
+        @if (cart.locationError()) {
+          <p class="loc-note warn">{{ lang.t('cart.locFail') }}</p>
+        }
+        <a class="btn btn-gold checkout" [href]="checkoutUrl()" target="_blank" rel="noopener">
+          <app-icon name="message-circle"></app-icon>
+          {{ lang.t('cart.checkout') }}
+        </a>
+        <button class="clear" (click)="cart.clear()">{{ lang.t('cart.clear') }}</button>
+      </footer>
+    }
+  </aside>
+}

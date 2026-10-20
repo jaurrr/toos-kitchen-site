@@ -1,0 +1,107 @@
+.menu-sec { background: linear-gradient(to bottom, var(--char), #1d130d 50%, var(--char)); }
+
+.controls {
+  display: flex; flex-direction: column; gap: 1rem; align-items: center;
+  margin-bottom: 1.4rem;
+}
+.brand-tabs {
+  display: inline-flex; background: rgba(201, 162, 39, 0.07);
+  border: 1px solid var(--line); border-radius: 999px; padding: 5px; gap: 4px;
+}
+.brand-tabs button {
+  border: 0; background: transparent; color: var(--cream-dim);
+  font-weight: 700; font-size: 0.95rem; padding: 0.65rem 1.5rem; border-radius: 999px;
+  min-height: 44px; transition: all 0.25s;
+}
+.brand-tabs button.active {
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #241a08;
+  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.3);
+}
+.brand-tabs button.active.zaf {
+  background: linear-gradient(135deg, #a93246, var(--maroon)); color: #fff;
+  box-shadow: 0 4px 16px rgba(110, 20, 35, 0.45);
+}
+
+.search {
+  display: flex; align-items: center; gap: 0.6rem;
+  background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+  padding: 0.35rem 0.4rem 0.35rem 1.1rem; width: min(520px, 100%);
+  color: var(--cream-dim);
+}
+html[dir='rtl'] .search { padding: 0.35rem 1.1rem 0.35rem 0.4rem; }
+.search input {
+  flex: 1; background: none; border: 0; outline: 0; color: var(--cream);
+  font: inherit; font-size: 1rem; min-height: 44px; min-width: 0;
+}
+.search input::placeholder { color: var(--cream-faint); }
+.clear {
+  background: none; border: 0; color: var(--cream-dim);
+  width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;
+}
+
+.pills {
+  display: flex; gap: 0.55rem; overflow-x: auto; padding: 0.4rem 0.1rem 1rem;
+  scrollbar-width: thin; margin-bottom: 0.4rem;
+}
+.pills button {
+  flex: none; background: rgba(201, 162, 39, 0.06); border: 1px solid var(--line);
+  color: var(--cream-dim); border-radius: 999px; padding: 0.55rem 1.1rem;
+  font-weight: 600; font-size: 0.88rem; min-height: 44px; transition: all 0.2s;
+}
+.pills button.active { background: var(--gold); border-color: var(--gold); color: #241a08; }
+
+.count { text-align: center; color: var(--cream-faint); font-size: 0.88rem; margin: 0 0 1.6rem; }
+.empty { text-align: center; color: var(--cream-dim); padding: 3rem 0; font-size: 1.05rem; }
+
+.cat-block { margin-bottom: 2.2rem; }
+.cat-title {
+  display: flex; align-items: center; gap: 0.8rem;
+  font-size: 1.5rem; color: var(--gold-soft); margin: 0 0 0.4rem;
+}
+.cat-title::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.cat-brand {
+  font-family: var(--font-en-body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: rgba(201, 162, 39, 0.12); border: 1px solid var(--line); color: var(--gold-soft);
+  padding: 0.25rem 0.7rem; border-radius: 999px;
+}
+html[lang='ar'] .cat-brand { font-family: var(--font-ar-body); letter-spacing: 0; }
+
+.dishes { list-style: none; margin: 0; padding: 0; }
+.dish-row {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.85rem 0.2rem; border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+}
+.names { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.n1 { font-weight: 600; font-size: 1.02rem; color: var(--cream); }
+.n2 { font-size: 0.82rem; color: var(--cream-faint); }
+.dish-row .price { font-size: 1.05rem; }
+.add-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem; flex: none;
+  min-height: 44px; padding: 0.45rem 0.95rem; border-radius: 999px;
+  border: 1px solid var(--gold); background: rgba(201, 162, 39, 0.1);
+  color: var(--gold-soft); font-weight: 600; font-size: 0.88rem; cursor: pointer;
+  transition: background 0.2s;
+}
+.add-btn:hover { background: rgba(201, 162, 39, 0.22); }
+
+.stepper {
+  display: inline-flex; align-items: center; gap: 0.1rem; flex: none;
+  border: 1px solid var(--gold); border-radius: 999px; padding: 0.2rem;
+  background: rgba(201, 162, 39, 0.12);
+}
+.stepper button {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%; border: none;
+  background: transparent; color: var(--gold-soft); cursor: pointer;
+}
+.stepper button:hover { background: rgba(201, 162, 39, 0.2); }
+.stepper span { min-width: 1.5rem; text-align: center; font-weight: 700; color: var(--cream); }
+
+.price-note {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  color: var(--cream-faint); font-size: 0.88rem; max-width: 640px; margin: 2.4rem auto 0;
+  background: rgba(201, 162, 39, 0.05); border: 1px dashed var(--line);
+  border-radius: var(--radius); padding: 1rem 1.2rem;
+}
+.price-note app-icon { flex: none; margin-top: 0.15rem; color: var(--gold); }

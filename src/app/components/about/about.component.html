@@ -1,0 +1,47 @@
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head" appReveal>
+      <span class="kicker">{{ lang.t('about.kicker') }}</span>
+      <h2 class="display">{{ lang.t('about.title') }}</h2>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="story">
+      <div class="photo" appReveal>
+        <img src="assets/img/about-team.jpg" alt="Our kitchen crew with a signature whole-lamb platter" loading="lazy" />
+        <div class="since"><span class="display">2017</span></div>
+      </div>
+      <div class="text" appReveal>
+        <p>{{ lang.t('about.p1') }}</p>
+        <p>{{ lang.t('about.p2') }}</p>
+        <div class="stats">
+          <div class="stat">
+            <span class="display num">4.3</span>
+            <span class="lbl">{{ lang.t('about.statRating') }}</span>
+          </div>
+          <div class="stat">
+            <span class="display num">2k+</span>
+            <span class="lbl">{{ lang.t('about.statReviews') }}</span>
+          </div>
+          <div class="stat">
+            <span class="display num">360+</span>
+            <span class="lbl">{{ lang.t('about.statDishes') }}</span>
+          </div>
+          <div class="stat">
+            <span class="display num">9</span>
+            <span class="lbl">{{ lang.t('about.statYears') }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="features">
+      @for (f of features; track f.icon) {
+        <div class="feat card" appReveal>
+          <app-icon [name]="f.icon"></app-icon>
+          <span>{{ featureName(f.key) }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

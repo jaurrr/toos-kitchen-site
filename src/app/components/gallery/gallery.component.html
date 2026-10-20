@@ -1,0 +1,55 @@
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="section-head" appReveal>
+      <span class="kicker">{{ lang.t('gallery.kicker') }}</span>
+      <h2 class="display">{{ lang.t('gallery.title') }}</h2>
+      <p>{{ lang.t('gallery.sub') }}</p>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="grid">
+      @for (p of visible(); track p.img; let i = $index) {
+        <button
+          class="tile"
+          [class.tall]="i % 4 === 0"
+          [class.wide]="i % 7 === 3"
+          [class.more]="isMoreTile(i)"
+          (click)="open(i)"
+          [attr.aria-label]="isMoreTile(i) ? lang.t('gallery.morePhotos') : alt(i)"
+          appReveal
+        >
+          <img [src]="p.img" [alt]="alt(i)" loading="lazy" />
+          @if (isMoreTile(i)) {
+            <span class="more-veil">
+              <span class="more-n">+{{ hiddenCount() }}</span>
+              <span class="more-t">{{ lang.t('gallery.morePhotos') }}</span>
+            </span>
+          } @else {
+            <span class="veil">
+              <span class="cap-chip">{{ alt(i) }}</span>
+              <span class="zoom"><app-icon name="search"></app-icon></span>
+            </span>
+          }
+        </button>
+      }
+    </div>
+
+    @if (expanded()) {
+      <div class="less-row">
+        <button class="btn btn-ghost" (click)="collapse()">
+          {{ lang.t('gallery.showLess') }}
+        </button>
+      </div>
+    }
+  </div>
+
+  @if (active() !== null) {
+    <div class="lightbox" (click)="close()" role="dialog" aria-modal="true" [attr.aria-label]="alt(active()!)">
+      <button class="lb-btn close" (click)="close()" [attr.aria-label]="lang.t('gallery.close')"><app-icon name="x"></app-icon></button>
+      <button class="lb-btn prev" (click)="$event.stopPropagation(); step(-1)" [attr.aria-label]="lang.t('gallery.prev')"><app-icon name="chevron-left"></app-icon></button>
+      <img [src]="photos[active()!].img" [alt]="alt(active()!)" (click)="$event.stopPropagation()" />
+      <button class="lb-btn next" (click)="$event.stopPropagation(); step(1)" [attr.aria-label]="lang.t('gallery.next')"><app-icon name="chevron-right"></app-icon></button>
+      <p class="cap">{{ alt(active()!) }}</p>
+    </div>
+  }
+</section>

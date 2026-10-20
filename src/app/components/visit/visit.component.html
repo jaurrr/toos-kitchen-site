@@ -1,0 +1,83 @@
+<section class="section" id="visit">
+  <div class="wrap">
+    <div class="section-head" appReveal>
+      <span class="kicker">{{ lang.t('visit.kicker') }}</span>
+      <h2 class="display">{{ lang.t('visit.title') }}</h2>
+      <p>{{ lang.t('visit.sub') }}</p>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="cards">
+      @for (s of spots; track s.id) {
+        <article class="card spot" appReveal [class.zaf]="s.id === 'zaffran'">
+          <h3 class="display">{{ lang.t('visit.' + s.id + 'Name') }}</h3>
+          <ul>
+            <li>
+              <app-icon name="map-pin"></app-icon>
+              <div><strong>{{ lang.t('visit.address') }}</strong><span>{{ lang.t('visit.' + s.id + 'Addr') }}</span></div>
+            </li>
+            <li>
+              <app-icon name="clock"></app-icon>
+              <div><strong>{{ lang.t('visit.hours') }}</strong><span class="ltr">{{ lang.t('visit.' + s.id + 'Hours') }}</span></div>
+            </li>
+            <li>
+              <app-icon name="message-circle"></app-icon>
+              <div>
+                <strong>{{ lang.t('visit.booking') }}</strong>
+                <a class="ltr" [href]="'https://wa.me/966581330111'" target="_blank" rel="noopener">{{ wa }}</a>
+              </div>
+            </li>
+            <li>
+              <app-icon name="phone"></app-icon>
+              <div>
+                <strong>{{ lang.t('visit.call') }}</strong>
+                <span class="nums">
+                  <a class="ltr" [href]="callHref(call1)">{{ call1 }}</a>
+                  <span aria-hidden="true">·</span>
+                  <a class="ltr" [href]="callHref(call2)">{{ call2 }}</a>
+                </span>
+              </div>
+            </li>
+          </ul>
+          <a class="btn btn-ghost dir" [href]="directions(s.mapsQuery)" target="_blank" rel="noopener">
+            <app-icon name="navigation"></app-icon>
+            {{ lang.t('visit.directions') }}
+          </a>
+        </article>
+      }
+
+      <article class="card book" appReveal>
+        <h3 class="display">{{ lang.t('visit.bookTitle') }}</h3>
+        <p>{{ lang.t('visit.bookSub') }}</p>
+        <label>
+          <span>{{ lang.t('visit.formName') }}</span>
+          <input type="text" [placeholder]="lang.t('visit.formNamePh')" [value]="guestName()" (input)="guestName.set($any($event.target).value)" />
+        </label>
+        <div class="row">
+          <label>
+            <span>{{ lang.t('visit.formDate') }}</span>
+            <input type="date" [value]="date()" (input)="date.set($any($event.target).value)" />
+          </label>
+          <label>
+            <span>{{ lang.t('visit.formGuests') }}</span>
+            <input type="number" min="1" max="60" [value]="guests()" (input)="guests.set($any($event.target).value)" />
+          </label>
+        </div>
+        <button class="btn btn-gold send" (click)="sendBooking()">
+          <app-icon name="message-circle"></app-icon>
+          {{ lang.t('visit.formSend') }}
+        </button>
+        <p class="open"><span class="dot"></span>{{ lang.t('visit.openNow') }}</p>
+      </article>
+    </div>
+
+    <div class="map" appReveal>
+      <iframe
+        title="Map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Toos+Kitchen+Saihat+Saudi+Arabia&z=16&output=embed"
+      ></iframe>
+    </div>
+  </div>
+</section>
